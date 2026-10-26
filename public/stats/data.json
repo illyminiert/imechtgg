@@ -1,0 +1,222 @@
+{
+  "generatedAt": "2026-10-26T16:53:15.630062+00:00",
+  "playerCount": 4,
+  "players": [
+    {
+      "uuid": "b113cd9d-d96b-4f62-958b-e243de18a569",
+      "name": "illyminiert",
+      "playHours": 11.6,
+      "deaths": 0,
+      "mobKills": 229,
+      "playerKills": 0,
+      "blocksMined": 8502,
+      "diamondOre": 122,
+      "walkKm": 20.94,
+      "jumps": 6932,
+      "topMined": [
+        [
+          "minecraft:grass_block",
+          1548
+        ],
+        [
+          "minecraft:sand",
+          1198
+        ],
+        [
+          "minecraft:stripped_birch_log",
+          961
+        ],
+        [
+          "minecraft:stripped_birch_wood",
+          467
+        ],
+        [
+          "minecraft:dirt",
+          446
+        ]
+      ],
+      "topKilled": [
+        [
+          "minecraft:zombie",
+          100
+        ],
+        [
+          "minecraft:cow",
+          47
+        ],
+        [
+          "minecraft:skeleton",
+          32
+        ],
+        [
+          "minecraft:creeper",
+          14
+        ],
+        [
+          "minecraft:spider",
+          9
+        ]
+      ]
+    },
+    {
+      "uuid": "70a17edb-bf8a-4273-8640-745083bfbb01",
+      "name": "BekoNo1",
+      "playHours": 11.3,
+      "deaths": 0,
+      "mobKills": 73,
+      "playerKills": 0,
+      "blocksMined": 8126,
+      "diamondOre": 6,
+      "walkKm": 14.5,
+      "jumps": 3818,
+      "topMined": [
+        [
+          "minecraft:pale_oak_log",
+          1613
+        ],
+        [
+          "minecraft:grass_block",
+          1074
+        ],
+        [
+          "minecraft:stone",
+          918
+        ],
+        [
+          "minecraft:pale_oak_leaves",
+          718
+        ],
+        [
+          "minecraft:deepslate",
+          458
+        ]
+      ],
+      "topKilled": [
+        [
+          "minecraft:zombie",
+          24
+        ],
+        [
+          "minecraft:skeleton",
+          14
+        ],
+        [
+          "minecraft:sheep",
+          12
+        ],
+        [
+          "minecraft:cow",
+          7
+        ],
+        [
+          "minecraft:spider",
+          6
+        ]
+      ]
+    },
+    {
+      "uuid": "cc51d29e-c0e6-43cc-9633-493b330bd0bb",
+      "name": "altanmadox",
+      "playHours": 7.2,
+      "deaths": 0,
+      "mobKills": 75,
+      "playerKills": 0,
+      "blocksMined": 6792,
+      "diamondOre": 0,
+      "walkKm": 18.75,
+      "jumps": 3728,
+      "topMined": [
+        [
+          "minecraft:sand",
+          2104
+        ],
+        [
+          "minecraft:wheat",
+          1568
+        ],
+        [
+          "minecraft:sandstone",
+          541
+        ],
+        [
+          "minecraft:stone",
+          515
+        ],
+        [
+          "minecraft:grass_block",
+          401
+        ]
+      ],
+      "topKilled": [
+        [
+          "minecraft:cow",
+          37
+        ],
+        [
+          "minecraft:sheep",
+          16
+        ],
+        [
+          "minecraft:pig",
+          10
+        ],
+        [
+          "minecraft:spider",
+          6
+        ],
+        [
+          "minecraft:skeleton",
+          3
+        ]
+      ]
+    },
+    {
+      "uuid": "5c93f874-51bd-435c-84f9-46a24806565d",
+      "name": "Hasssso",
+      "playHours": 5.9,
+      "deaths": 4,
+      "mobKills": 5,
+      "playerKills": 0,
+      "blocksMined": 1867,
+      "diamondOre": 0,
+      "walkKm": 7.52,
+      "jumps": 4635,
+      "topMined": [
+        [
+          "minecraft:stone",
+          725
+        ],
+        [
+          "minecraft:short_grass",
+          236
+        ],
+        [
+          "minecraft:grass_block",
+          192
+        ],
+        [
+          "minecraft:dirt",
+          190
+        ],
+        [
+          "minecraft:cobblestone",
+          181
+        ]
+      ],
+      "topKilled": [
+        [
+          "minecraft:zombie",
+          3
+        ],
+        [
+          "minecraft:sheep",
+          1
+        ],
+        [
+          "minecraft:iron_golem",
+          1
+        ]
+      ]
+    }
+  ]
+}

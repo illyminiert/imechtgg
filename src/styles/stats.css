@@ -1,0 +1,243 @@
+.stats-main {
+    padding-bottom: 32px
+}
+
+.stats-hero {
+    padding: 48px 14px 34px
+}
+
+.stats-hero h1 {
+    font-size: clamp(36px, 6vw, 52px);
+    letter-spacing: -.05em;
+    margin: 8px 0 10px
+}
+
+.stats-hero .muted {
+    margin-bottom: 0
+}
+
+.stats-main h2 {
+    font-size: 23px;
+    margin: 7px 0 0;
+    letter-spacing: -.025em
+}
+
+.overview,
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 13px
+}
+
+.overview-card,
+.category-card,
+.leaderboard {
+    background: rgba(19, 27, 45, .85);
+    border: 1px solid #2d3853;
+    border-radius: 15px
+}
+
+.overview-card {
+    padding: 19px
+}
+
+.caption {
+    display: block;
+    color: #a8b9d7;
+    font-size: 13px
+}
+
+.value {
+    display: block;
+    margin-top: 8px;
+    font-size: clamp(21px, 3vw, 29px);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums
+}
+
+.statistics {
+    margin-top: 38px
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 19px
+}
+
+.hint {
+    margin: 0;
+    font-size: 13px
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    cursor: pointer;
+    color: var(--text);
+    font: inherit;
+    padding: 21px 18px;
+    min-height: 146px;
+    transition: background .18s, border-color .18s, transform .18s, box-shadow .18s
+}
+
+.category-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    background: #1b2945
+}
+
+.category-card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px
+}
+
+.category-card.selected {
+    border-color: #788dff;
+    background: linear-gradient(155deg, #1b2e54, #171e3c);
+    box-shadow: inset 0 0 0 1px rgba(88, 101, 242, .4), 0 0 22px rgba(88, 101, 242, .12)
+}
+
+.category-icon {
+    display: grid;
+    place-items: center;
+    width: 37px;
+    height: 37px;
+    background: #27375c;
+    border: 1px solid #374b78;
+    border-radius: 10px;
+    color: #a6b5ff;
+    font-size: 22px;
+    margin-bottom: 14px
+}
+
+.category-label {
+    font-size: 15px;
+    font-weight: 750
+}
+
+.category-description {
+    font-size: 12px;
+    color: #a8b9d7;
+    margin-top: 5px
+}
+
+.leaderboard {
+    margin-top: 30px;
+    padding: 23px
+}
+
+.pill {
+    padding: 7px 12px;
+    background: #23345a;
+    border-radius: 999px;
+    color: #abc7ff;
+    font-size: 12px;
+    white-space: nowrap
+}
+
+.player {
+    display: grid;
+    grid-template-columns: 38px 48px 1fr auto;
+    gap: 15px;
+    align-items: center;
+    padding: 14px 8px;
+    border-bottom: 1px solid #2a3852
+}
+
+.player:last-child {
+    border-bottom: 0
+}
+
+.rank {
+    color: #8eacff;
+    font-weight: 800
+}
+
+.head {
+    width: 45px;
+    height: 45px;
+    image-rendering: pixelated;
+    border-radius: 7px
+}
+
+.player-name {
+    font-weight: 700;
+    overflow-wrap: anywhere
+}
+
+.score {
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    text-align: right
+}
+
+.stats-main footer {
+    margin-top: 28px
+}
+
+.error {
+    background: #472127;
+    color: #ffd7dc;
+    border: 1px solid #94525d;
+    padding: 16px;
+    border-radius: 12px
+}
+
+@media(max-width:800px) {
+
+    .overview,
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+}
+
+@media(max-width:490px) {
+    .stats-hero {
+        padding: 34px 4px 28px
+    }
+
+    .overview,
+    .category-grid {
+        gap: 10px
+    }
+
+    .overview-card,
+    .category-card {
+        padding: 14px
+    }
+
+    .category-card {
+        min-height: 137px
+    }
+
+    .category-label {
+        font-size: 14px
+    }
+
+    .leaderboard {
+        padding: 16px 12px
+    }
+
+    .player {
+        grid-template-columns: 25px 38px 1fr auto;
+        gap: 8px
+    }
+
+    .head {
+        height: 36px;
+        width: 36px
+    }
+
+    .hint {
+        display: none
+    }
+
+    .section-heading {
+        align-items: start
+    }
+}

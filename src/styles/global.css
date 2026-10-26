@@ -1,0 +1,139 @@
+:root {
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    color-scheme: dark;
+    --bg: #090a12;
+    --text: #f2f3ff;
+    --muted: #acb4cd;
+    --blue: #5865f2;
+    --accent: #7c94ff;
+    --border: #323550;
+    --surface: rgba(23, 25, 43, .88)
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scrollbar-gutter: stable;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    background: radial-gradient(ellipse at 67% 0%, rgba(63, 76, 152, .11), transparent 45%), var(--bg)
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+.site-shell {
+    width: min(1040px, calc(100% - 48px));
+    margin: 0 auto
+}
+
+.site-nav {
+    height: 74px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--border)
+}
+
+.brand {
+    font-weight: 850;
+    font-size: 24px;
+    letter-spacing: -1px;
+    color: white
+}
+
+.brand span,
+.glow-title span {
+    color: var(--blue);
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow:
+            0 0 3px rgba(88, 101, 242, 0.20),
+            0 0 8px rgba(88, 101, 242, 0.12);
+    }
+
+    50% {
+        text-shadow:
+            0 0 5px rgba(88, 101, 242, 0.45),
+            0 0 12px rgba(88, 101, 242, 0.25);
+    }
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px
+}
+
+.nav-links a {
+    padding: 9px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #c0c6e0;
+    transition: background .2s, color .2s
+}
+
+.nav-links a:hover {
+    background: rgba(88, 101, 242, .12);
+    color: white
+}
+
+.nav-links a.active {
+    background: rgba(88, 101, 242, .2);
+    color: #aeb9ff
+}
+
+.muted {
+    color: var(--muted)
+}
+
+.eyebrow {
+    margin: 0;
+    color: #85a9ff;
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: .17em
+}
+
+.small {
+    font-size: 12px
+}
+
+@media(max-width:520px) {
+    .site-shell {
+        width: calc(100% - 24px)
+    }
+
+    .site-nav {
+        padding: 0 6px;
+        height: 68px
+    }
+
+    .nav-links a {
+        padding: 8px 12px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .brand span,
+    .glow-title span {
+        animation: none
+    }
+
+    .nav-links a {
+        transition: none
+    }
+}
