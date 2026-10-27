@@ -1,0 +1,23 @@
+.player-link { text-decoration: none; color: inherit; transition: background .18s ease; border-radius: 9px; }
+.player-link:hover, .player-link:focus-visible { background: rgba(88, 101, 242, .12); }
+.player-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.player-open { color: var(--accent); font-size: 12px; margin-left: 6px; }
+.player-profile-main { padding-top: 32px; }
+.profile-back { display: inline-flex; color: #aeb9ff; font-size: 14px; padding: 6px 0; }
+.profile-back:hover { text-decoration: underline; }
+.profile-header { display: flex; align-items: center; gap: 24px; padding: 28px 0 30px; }
+.profile-header h1 { font-size: clamp(28px, 5vw, 46px); margin: 7px 0 10px; overflow-wrap: anywhere; }
+.profile-avatar { width: 108px; height: 108px; border-radius: 16px; image-rendering: pixelated; background: var(--surface); border: 1px solid var(--border); }
+.profile-uuid { color: var(--muted); font: 12px ui-monospace, SFMono-Regular, Consolas, monospace; overflow-wrap: anywhere; }
+.profile-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 13px; }
+.profile-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+.profile-panel { background: rgba(19, 27, 45, .85); border: 1px solid #2d3853; border-radius: 15px; padding: 22px; min-width: 0; }
+.profile-panel h2 { margin: 0 0 16px; font-size: 20px; }
+.profile-top-list { margin: 0; padding: 0; list-style: none; }
+.profile-top-list li { display: flex; justify-content: space-between; gap: 10px; padding: 12px 2px; border-bottom: 1px solid var(--border); }
+.profile-top-list li:last-child { border-bottom: 0; }
+.profile-top-list li span { color: var(--muted); overflow-wrap: anywhere; }
+.profile-top-list li strong { white-space: nowrap; font-variant-numeric: tabular-nums; }
+@media (max-width: 800px) { .profile-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .profile-details { grid-template-columns: 1fr; } .profile-header { gap: 15px; } .profile-avatar { width: 78px; height: 78px; } .profile-header h1 { font-size: 29px; } }
+@media (prefers-reduced-motion: reduce) { .player-link { transition: none; } }

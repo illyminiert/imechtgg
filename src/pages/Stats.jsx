@@ -45,18 +45,21 @@ export default function Stats() {
         <StatCard label="Tode insgesamt" value={fmt(total('deaths'))} />
         <StatCard label="Blöcke abgebaut" value={fmt(total('blocksMined'))} />
       </section>
-      <section className="statistics" aria-label="Statistik-Kategorien">
-        <div className="section-heading"><div><p className="eyebrow">BESTENLISTEN</p><h2>Kategorie auswählen</h2></div><p className="muted hint">Klicke auf eine Kachel</p></div>
-        <div className="category-grid" role="group" aria-label="Statistik auswählen">
-          {categories.map(item => <button type="button" key={item.key} className={`category-card${item.key === activeKey ? ' selected' : ''}`}
-            aria-pressed={item.key === activeKey} onClick={() => setActiveKey(item.key)}>
-            <span className="category-icon" aria-hidden="true">{item.icon}</span>
-            <span className="category-label">{item.label}</span>
-            <span className="category-description">{item.description}</span>
-          </button>)}
+      <div className="stats-content-layout">
+        <aside className="statistics category-sidebar" aria-label="Statistik-Kategorien">
+          <div className="sidebar-heading"><p className="eyebrow">BESTENLISTEN</p><h2>Kategorien</h2></div>
+          <div className="category-list" role="group" aria-label="Statistik auswählen">
+            {categories.map(item => <button type="button" key={item.key} className={`category-item${item.key === activeKey ? ' selected' : ''}`}
+              aria-pressed={item.key === activeKey} onClick={() => setActiveKey(item.key)}>
+              <span className="category-item-icon" aria-hidden="true">{item.icon}</span>
+              <span className="category-item-label">{item.label}</span>
+            </button>)}
+          </div>
+        </aside>
+        <div className="stats-leaderboard-column">
+          <Leaderboard players={players} category={category} />
         </div>
-      </section>
-      <Leaderboard players={players} category={category} />
+      </div>
       <footer>{data.generatedAt && !Number.isNaN(Date.parse(data.generatedAt)) && <p className="muted">Letzte Datenaktualisierung: {new Date(data.generatedAt).toLocaleString('de-DE')}</p>}
         <p className="muted small">Unabhängiges Community-Projekt – nicht mit Mojang oder Microsoft verbunden.</p></footer>
     </>}
