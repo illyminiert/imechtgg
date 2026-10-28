@@ -1,0 +1,35 @@
+/* Kompakter Live-Status rechts neben dem Stats-Titel. */
+.stats-hero-with-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.stats-hero-copy { min-width: 0; }
+.stats-live {
+  flex: 0 0 238px;
+  box-sizing: border-box;
+  padding: 15px 17px;
+  border: 1px solid #2d3853;
+  border-radius: 14px;
+  background: rgba(19, 27, 45, .85);
+  color: #edf3ff;
+}
+.stats-live-status { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; }
+.stats-live-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: #9aabc7; }
+.stats-live-online { color: #9de0b7; }
+.stats-live-online .stats-live-dot { background: #47c989; }
+.stats-live-offline { color: #f1a5b0; }
+.stats-live-offline .stats-live-dot { background: #eb6d7d; }
+.stats-live-error, .stats-live-loading { color: #a5b5d1; }
+.stats-live-players { font-size: 14px; font-weight: 700; margin-top: 9px; }
+.stats-live-address-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 7px; }
+.stats-live-address { color: #a8b9d7; font-size: 12px; overflow-wrap: anywhere; }
+.stats-live-copy { flex-shrink: 0; cursor: pointer; color: #b8c5ff; background: #263457; border: 1px solid #3b4c76; border-radius: 8px; padding: 6px 8px; font: inherit; font-size: 11px; font-weight: 700; }
+.stats-live-copy:hover { background: #334570; }
+.stats-live-copy:focus-visible { outline: 2px solid #96a5ff; outline-offset: 2px; }
+.stats-live-version { display: block; color: #8294b2; font-size: 11px; margin-top: 7px; }
+@media (max-width: 690px) {
+  .stats-hero-with-status { flex-direction: column; align-items: stretch; gap: 16px; }
+  .stats-live { flex: 0 1 auto; width: 100%; }
+}

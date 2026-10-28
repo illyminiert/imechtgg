@@ -1,3 +1,5 @@
+import ServerStatusInline from '../components/ServerStatusInline.jsx';
+import '../styles/server-status-inline.css';
 import { useEffect, useState } from 'react';
 import StatCard from '../components/StatCard.jsx';
 import Leaderboard from '../components/Leaderboard.jsx';
@@ -34,8 +36,14 @@ export default function Stats() {
   const category = categories.find(item => item.key === activeKey);
 
   return <main className="stats-main">
-    <header className="stats-hero"><p className="eyebrow">MINECRAFT COMMUNITY</p><h1>Server-Statistiken</h1>
-      <p className="muted">Zahlen, Rekorde und die Bestenlisten deiner Minecraft-Welt.</p></header>
+    <header className="stats-hero stats-hero-with-status">
+      <div className="stats-hero-copy">
+        <p className="eyebrow">MINECRAFT COMMUNITY</p>
+        <h1>Server-Statistiken</h1>
+        <p className="muted">Zahlen, Rekorde und die Bestenlisten deiner Minecraft-Welt.</p>
+      </div>
+      <ServerStatusInline />
+    </header>
     {error && <p className="error" role="alert">Statistiken konnten nicht geladen werden: {error}. Prüfe public/stats/data.json.</p>}
     {!data && !error && <p className="muted" role="status">Statistiken werden geladen …</p>}
     {data && <>
