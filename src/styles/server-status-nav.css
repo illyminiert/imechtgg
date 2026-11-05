@@ -25,5 +25,18 @@
 .nav-server-address button { border:1px solid #3d4e76; border-radius:8px; padding:6px 8px; background:#27365a; color:#cdd5ff; cursor:pointer; font:inherit; font-size:11px; font-weight:700; }
 .nav-server-address button:hover { background:#34466d; }
 @media (max-width:760px) { .nav-brand-group { gap:10px; } .nav-server-chip { padding:6px 8px; } .nav-server-chip-label { font-size:11px; } }
-@media (max-width:600px) { .site-nav { flex-wrap:wrap; height:auto; min-height:68px; gap:8px; padding-top:10px; padding-bottom:10px; } .nav-brand-group { max-width:100%; } .nav-links { margin-left:auto; } .nav-server-popover { left:0; } }
+@media (max-width:600px) {
+    /* Auf Mobilgeräten sind Brand und Status eigenständige Flex-Elemente. */
+    .site-nav .nav-brand-group { display: contents; }
+    .site-nav .nav-server-status { margin-left: auto; }
+    .nav-server-chip { gap: 5px; padding: 6px 8px; }
+    .nav-server-chip-label { font-size: 11px; }
+    /* Der Status öffnet sich im schmalen Viewport nach rechts innen. */
+    .nav-server-popover { left: auto; right: 0; }
+}
+@media (max-width:360px) {
+    .site-nav .nav-server-status { margin-left: auto; }
+    .nav-server-chip { gap: 4px; padding: 6px; }
+    .nav-server-chevron { width: 10px; }
+}
 @media (prefers-reduced-motion:reduce) { .nav-server-chip { transition:none; } }
