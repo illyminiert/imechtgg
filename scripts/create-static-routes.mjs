@@ -7,6 +7,7 @@ function routeIndex(dir) {
 }
 
 routeIndex('dist/stats');
+routeIndex('dist/map');
 
 // Exakte Spielerpfade auf GitHub Pages ermöglichen (auch bei Browser-Refresh).
 try {
@@ -19,5 +20,5 @@ try {
   console.warn('Spielerrouten konnten nicht erstellt werden:', error.message);
 }
 
-// Fallback für unbekannte Client-Routen (bei GitHub Pages mit 404-Status).
+// Fallback für unbekannte Client-Routen.
 copyFileSync('dist/index.html', 'dist/404.html');
