@@ -21,3 +21,12 @@
 @media (max-width: 800px) { .profile-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .profile-details { grid-template-columns: 1fr; } .profile-header { gap: 15px; } .profile-avatar { width: 78px; height: 78px; } .profile-header h1 { font-size: 29px; } }
 @media (prefers-reduced-motion: reduce) { .player-link { transition: none; } }
+
+/* Online-Tag neben dem Spielernamen */
+.profile-name-row { display: flex; flex-wrap: wrap; align-items: center; column-gap: 12px; row-gap: 4px; margin: 7px 0 10px; }
+.profile-name-row h1 { margin: 0; }
+.profile-status-tag { display: inline-flex; align-items: center; gap: 7px; padding: 5px 10px; border: 1px solid #4a5265; border-radius: 999px; background: rgba(37, 45, 61, .85); color: #c4ccdd; font-size: 12px; font-weight: 750; white-space: nowrap; }
+.profile-status-tag-dot { width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; background: #8a94ab; }
+.profile-status-tag--online { background: rgba(27, 58, 49, .88); border-color: rgba(52, 121, 87, .8); color: #b9f2d3; }
+.profile-status-tag--online .profile-status-tag-dot { background: #40d98b; box-shadow: 0 0 8px rgba(64, 217, 139, .4); }
+.profile-status-tag--unknown { background: rgba(33, 39, 56, .85); border-color: #404b63; color: #aab6cc; }
