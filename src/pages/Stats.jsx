@@ -14,12 +14,18 @@ const categories = [
   { key: 'walkKm', label: 'Gelaufene Strecke', unit: 'km', icon: '➜', description: 'Zu Fuß zurückgelegt' },
   { key: 'jumps', label: 'Sprünge', unit: '', icon: '↑', description: 'Gesamte Sprünge' }
 ];
+const STATUS_URL = 'https://api.mcstatus.io/v2/status/java/mc.imecht.gg?query=false';
+const STATUS_REFRESH_MS = 60_000;
+const normalizeUuid = value => String(value || '').replace(/-/g, '').toLowerCase();
+
 const fmt = value => new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2 }).format(value);
 
 export default function Stats() {
   const [activeKey, setActiveKey] = useState('playHours');
   const [data, setData] = useState(null);
   const [error, setError] = useState('');
+  const [onlinePlayerUuids, setOnlinePlayerUuids] = useState(new Set());
+  const [onlineStatusKnown, setOnlineStatusKnown] = useState(false);
   useEffect(() => {
     const controller = new AbortController();
     fetch('/stats/data.json', { cache: 'no-store', signal: controller.signal })
@@ -31,6 +37,44 @@ export default function Stats() {
       .catch(e => { if (e.name !== 'AbortError') setError(e.message); });
     return () => controller.abort();
   }, []);
+  // Die Live-Liste wird unabhängig von den (statisch generierten) Spielerstatistiken aktualisiert.
+  useEffect(() => {
+    let active = true;
+    let controller;
+
+    async function refreshOnlinePlayers() {
+      controller?.abort();
+      const current = new AbortController();
+      controller = current;
+      try {
+        const response = await fetch(STATUS_URL, { cache: 'no-store', signal: current.signal });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const status = await response.json();
+        if (!active || current.signal.aborted) return;
+
+        // Nur bei einer vollständigen Liste oder einem offline gemeldeten Server
+        // lässt sich der Status einzelner Spieler zuverlässig bestimmen.
+        if (status.online && !Array.isArray(status.players?.list)) {
+          setOnlineStatusKnown(false);
+          return;
+        }
+        const entries = status.online ? status.players.list : [];
+        setOnlinePlayerUuids(new Set(entries.map(entry => normalizeUuid(entry.uuid)).filter(Boolean)));
+        setOnlineStatusKnown(true);
+      } catch {
+        if (active && !current.signal.aborted) setOnlineStatusKnown(false);
+      }
+    }
+
+    refreshOnlinePlayers();
+    const interval = window.setInterval(refreshOnlinePlayers, STATUS_REFRESH_MS);
+    return () => {
+      active = false;
+      window.clearInterval(interval);
+      controller?.abort();
+    };
+  }, []);
+
   const players = Array.isArray(data?.players) ? data.players : [];
   const total = key => players.reduce((sum, p) => sum + (Number(p[key]) || 0), 0);
   const category = categories.find(item => item.key === activeKey);
@@ -65,7 +109,7 @@ export default function Stats() {
           </div>
         </aside>
         <div className="stats-leaderboard-column">
-          <Leaderboard players={players} category={category} />
+          <Leaderboard players={players} category={category} onlinePlayerUuids={onlinePlayerUuids} onlineStatusKnown={onlineStatusKnown} />
         </div>
       </div>
       <footer>{data.generatedAt && !Number.isNaN(Date.parse(data.generatedAt)) && <p className="muted">Letzte Datenaktualisierung: {new Date(data.generatedAt).toLocaleString('de-DE')}</p>}

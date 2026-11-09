@@ -378,3 +378,29 @@
     border-radius: 6px;
   }
 }
+/* Online-Status: kleiner grüner Punkt direkt vor dem Spielernamen. */
+.player-name {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+.player-name-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.player-online-indicator {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border-radius: 50%;
+}
+.player-online-indicator.is-online {
+  background: #42d98b;
+  box-shadow: 0 0 8px rgba(66, 217, 139, 0.45);
+}
+.player-online-indicator.is-offline {
+  background: #737e96;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
